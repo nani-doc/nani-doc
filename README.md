@@ -21,8 +21,8 @@ windows
 
 ## 📖 文档
 
-[中国用户](https://nani-doc.gitee.io)
-[海外用户](https://nanidoc.lmm.show)
+- [中国用户](https://nani-doc.gitee.io)
+- [海外用户](https://nanidoc.lmm.show)
 
 ## 💿 调用示例
 
