@@ -1,0 +1,19 @@
+#content {
+    margin: 3rem auto 0 auto;
+    max-width: 80%;
+    padding: 30px 15px 40px;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+blockquote {
+    background-color: #f3f5f7;
+    border-color: #42b983;
+    padding: 0.1rem 1.5rem;
+    border-left-width: 0.5rem;
+    border-left-style: solid;
+    margin: 1rem 0;
+}
+blockquote h3 {
+    padding-top: 3rem;
+}

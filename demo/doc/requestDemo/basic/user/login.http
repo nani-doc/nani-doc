@@ -1,0 +1,8 @@
+### Send POST request with json body
+POST http://localhost:8080/basic/user/login
+Content-Type: application/json
+
+{
+  "userName": "zhangsan",
+  "password": "123456"
+}

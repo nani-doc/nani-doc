@@ -1,0 +1,1 @@
+[{"controllerName":"user","controllerTitle":"用户管理","pageList":[{"controllerName":"user","controllerTitle":"用户管理","name":"用户登录","path":"system/user/login.json","url":"/system/user/login"},{"controllerName":"user","controllerTitle":"用户管理","name":"获得用户信息","path":"system/user/getUserInfo.json","url":"/system/user/get/user_info"}]}]

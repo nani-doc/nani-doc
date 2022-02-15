@@ -1,0 +1,1 @@
+[{"controllerName":"app","controllerTitle":"应用管理","pageList":[{"controllerName":"app","controllerTitle":"应用管理","name":"查询应用列表","path":"basic/app/getAppList.json","url":"/basic/app/list"}]}]

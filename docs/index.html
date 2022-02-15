@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>纳尼文档</title>
+    <link rel="icon" href="./assets/img/favicon.ico">
+    <meta name="google-site-verification" content="6t0LoIeFksrjF4c9sqUEsVXiQNxLp2hgoqo0KryT-sE">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="keywords" content="doc,docs" />
+    <meta name="description" content="基于java doc注释生成文档，零侵入。" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/base.css" />
+    <link rel="stylesheet" href="./assets/css/index.css" />
+</head>
+
+<body>
+    <header class="navbar">
+        <a href="./" aria-current="page" class="home-link router-link-exact-active router-link-active">
+            <span class="site-name">纳尼文档（NaNi Doc）</span>
+        </a>
+        <div class="links" style="max-width: 1770px;">
+            <nav class="nav-links">
+                <a class="gitee" href="https://gitee.com/nani-doc/nani-doc" title="gitee" target="_blank">
+                    <svg t="1621326401490" class="gitee_icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="2541" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <path
+                            d="M512 1024C230.4 1024 0 793.6 0 512S230.4 0 512 0s512 230.4 512 512-230.4 512-512 512z m259.2-569.6H480c-12.8 0-25.6 12.8-25.6 25.6v64c0 12.8 12.8 25.6 25.6 25.6h176c12.8 0 25.6 12.8 25.6 25.6v12.8c0 41.6-35.2 76.8-76.8 76.8h-240c-12.8 0-25.6-12.8-25.6-25.6V416c0-41.6 35.2-76.8 76.8-76.8h355.2c12.8 0 25.6-12.8 25.6-25.6v-64c0-12.8-12.8-25.6-25.6-25.6H416c-105.6 0-188.8 86.4-188.8 188.8V768c0 12.8 12.8 25.6 25.6 25.6h374.4c92.8 0 169.6-76.8 169.6-169.6v-144c0-12.8-12.8-25.6-25.6-25.6z"
+                            p-id="2542" data-spm-anchor-id="a313x.7781069.0.i7" class="selected"></path>
+                    </svg>
+                </a>
+                <a class="github" href="https://github.com/nani-doc/nani-doc" title="github" target="_blank">
+                    <svg t="1621324629456" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="2349" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <path
+                            d="M512 12.63616c-282.74688 0-512 229.21216-512 512 0 226.22208 146.69824 418.14016 350.12608 485.82656 25.57952 4.73088 35.00032-11.10016 35.00032-24.63744 0-12.20608-0.47104-52.55168-0.69632-95.31392-142.4384 30.96576-172.50304-60.416-172.50304-60.416-23.28576-59.16672-56.85248-74.91584-56.85248-74.91584-46.44864-31.78496 3.50208-31.1296 3.50208-31.1296 51.4048 3.60448 78.47936 52.75648 78.47936 52.75648 45.6704 78.27456 119.76704 55.64416 149.01248 42.55744 4.58752-33.09568 17.85856-55.68512 32.50176-68.46464-113.72544-12.94336-233.2672-56.85248-233.2672-253.0304 0-55.88992 20.00896-101.5808 52.75648-137.4208-5.3248-12.9024-22.85568-64.96256 4.95616-135.49568 0 0 43.008-13.74208 140.84096 52.49024 40.83712-11.34592 84.64384-17.03936 128.16384-17.24416 43.49952 0.2048 87.32672 5.87776 128.24576 17.24416 97.73056-66.2528 140.65664-52.49024 140.65664-52.49024 27.87328 70.53312 10.3424 122.59328 5.03808 135.49568 32.82944 35.86048 52.69504 81.53088 52.69504 137.4208 0 196.64896-119.78752 239.94368-233.79968 252.6208 18.37056 15.89248 34.73408 47.04256 34.73408 94.80192 0 68.5056-0.59392 123.63776-0.59392 140.51328 0 13.6192 9.216 29.5936 35.16416 24.576 203.32544-67.76832 349.83936-259.62496 349.83936-485.76512 0-282.78784-229.23264-512-512-512z"
+                            p-id="2350"></path>
+                    </svg>
+                </a>
+            </nav>
+        </div>
+    </header>
+    <section class="cover show">
+        <div class="mask"></div>
+        <div class="cover-main">
+            <p><img src="./assets/img/logo.svg" /></p>
+            <h1 id="docsify-4122">
+                <span>纳尼文档</span>
+                <small>V1.0</small>
+            </h1>
+            <blockquote>
+                <p>基于java doc注释生成文档，零侵入</p>
+            </blockquote>
+            <ul>
+                <li>简单无侵入，无需增加额外代码</li>
+            </ul>
+            <p class="actions">
+                <a href="https://nani-doc.gitee.io/nani-doc-web/" target="_blank">示例</a>
+                <a href="./doc/">快速开始
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24">
+                        <path
+                            d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z">
+                        </path>
+                    </svg>
+                </a>
+            </p>
+        </div>
+    </section>
+</body>
+
+</html>

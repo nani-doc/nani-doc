@@ -1,0 +1,9 @@
+{
+  "projectName": "demo",
+  "projectTitle": "示例项目",
+  "defaultModuleName":"basic",
+  "moduleMap": {
+    "basic": "基础数据",
+    "system": "系统管理"
+  }
+}

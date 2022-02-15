@@ -1,0 +1,50 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+}
+
+group = 'show.lmm.nanidoc'
+version = '1.0'
+sourceCompatibility = '1.8'
+
+allprojects {
+    repositories {
+        maven {
+            url 'https://maven.aliyun.com/repository/public/'
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/spring/'
+        }
+        mavenLocal()
+        mavenCentral()
+    }
+}
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+//    implementation 'org.springframework.boot:spring-boot-starter'
+    // https://mvnrepository.com/artifact/com.thoughtworks.qdox/qdox
+    implementation group: 'com.thoughtworks.qdox', name: 'qdox', version: '2.0.1'
+    // https://mvnrepository.com/artifact/com.alibaba/fastjson
+    implementation group: 'com.alibaba', name: 'fastjson', version: '1.2.79'
+    // https://mvnrepository.com/artifact/org.fusesource.jansi/jansi
+    implementation group: 'org.fusesource.jansi', name: 'jansi', version: '2.4.0'
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.8.2'
+
+}
+
+test {
+    useJUnitPlatform()
+}
+shadowJar {
+    archiveBaseName.convention("nani-doc")
+    archiveClassifier.set(null)
+    manifest {
+        attributes(
+                'Main-Class': 'show.lmm.nanidoc.App',
+                'NaNi-Doc-Version': project.version
+        )
+    }
+}
