@@ -1,7 +1,7 @@
 package show.lmm.nanidoc;
 
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSONArray;
+import com.alibaba.fastjson2.JSONObject;
 import com.thoughtworks.qdox.JavaProjectBuilder;
 import com.thoughtworks.qdox.directorywalker.DirectoryScanner;
 import com.thoughtworks.qdox.directorywalker.SuffixFilter;
@@ -22,6 +22,8 @@ import show.lmm.nanidoc.utils.LoadSourceCoceUtil;
 import java.io.*;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import static org.fusesource.jansi.Ansi.Color.GREEN;
 import static org.fusesource.jansi.Ansi.ansi;
@@ -67,15 +69,14 @@ public class DocContext {
         });
         System.out.println(ansi().fg(GREEN)
                 .a("加载java文件成功").reset());
+        Collection<JavaClass> controllers = classeList.stream()
+                .filter(item->item.getPackageName().startsWith(args.getPackageName())).collect(Collectors.toSet());
         System.out.println(ansi().fg(GREEN)
-                .a("文档生成中……").reset());
+                .a(String.format("文档生成中，共：%d 个controller文档待生成",controllers.size())).reset());
 
         //模块页面列表 map[模块名称,map[controller名称,list[页面]]]
         Map<String, Map<String, List<PageInfo>>> modulePageMap = new HashMap<>();
-        for (JavaClass controller : classeList) {
-            if (!controller.getPackageName().startsWith(args.getPackageName())) {
-                continue;
-            }
+        for (JavaClass controller : controllers) {
             Map<String, JavaAnnotation> classAnnotationsList = DocUtil.getAnnotationsList(controller.getAnnotations());
             String requestMappingAnnotationName = DocUtil.getFirstJointAnnotation(classAnnotationsList.keySet(), Constant.requestMappingAnnotationList);
             //跳过非controller class

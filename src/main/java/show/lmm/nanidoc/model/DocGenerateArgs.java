@@ -1,6 +1,6 @@
 package show.lmm.nanidoc.model;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSONObject;
 import lombok.Getter;
 import lombok.Setter;
 import show.lmm.nanidoc.core.DocException;

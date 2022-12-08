@@ -1,6 +1,6 @@
 package show.lmm.nanidoc;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSONObject;
 import show.lmm.nanidoc.core.Constant;
 import show.lmm.nanidoc.model.MethodItem;
 import show.lmm.nanidoc.model.PageInfo;
@@ -47,23 +47,18 @@ public class DocAction {
         url.append(methodAnnotationsList.get(requestMappingAnnotationName).getNamedParameter("value").toString().trim());
         //处理返回值
         JavaType baseResponseClass = action.getReturnType();
-        Collection<JavaType> responseJavaTypes = new HashSet<>();
-        boolean hasWraperClasss = wraperClasss.contains(baseResponseClass.getBinaryName());
-        final List<JavaType> realResponseJavaTypes = ((DefaultJavaParameterizedType) baseResponseClass).getActualTypeArguments();
+
+
+        final JavaType responseClass = getResponseClass(wraperClasss,baseResponseClass);
+
+        Collection<JavaType> responseJavaTypes = new HashSet<JavaType>(){{
+            add(responseClass);
+        }};
+        final List<JavaType> realResponseJavaTypes = ((DefaultJavaParameterizedType) responseClass).getActualTypeArguments();
         realResponseJavaTypes.forEach((item) -> {
             responseJavaTypes.add(item);
             TypeUtil.getGenericTypes((JavaClass) item).forEach((javaType -> responseJavaTypes.add(javaType)));
         });
-        if (hasWraperClasss) {
-            if (!realResponseJavaTypes.isEmpty()) {
-                baseResponseClass = realResponseJavaTypes.get(0);
-            }
-        } else {
-            responseJavaTypes.add(baseResponseClass);
-            TypeUtil.getGenericTypes((JavaClass) baseResponseClass).forEach((javaType -> responseJavaTypes.add(javaType)));
-        }
-        final JavaType responseClass = baseResponseClass;
-
 
         String title = action.getComment();
         String controllerName = Util.firstCharToLowerCase(controller.getName().replace("Controller", ""));
@@ -86,6 +81,28 @@ public class DocAction {
         }};
         pageInfo.setPath(relativeDocPath);
         return pageInfo;
+    }
+
+    private JavaType getResponseClass(Collection<String> wraperClasss,JavaType baseResponseClass){
+        Collection<JavaType> responseJavaTypes = new HashSet<>();
+        final List<JavaType> realResponseJavaTypes = ((DefaultJavaParameterizedType) baseResponseClass).getActualTypeArguments();
+        realResponseJavaTypes.forEach((item) -> {
+            responseJavaTypes.add(item);
+            TypeUtil.getGenericTypes((JavaClass) item).forEach((responseJavaTypes::add));
+        });
+        boolean hasWraperClasss = wraperClasss.contains(baseResponseClass.getBinaryName());
+        if (hasWraperClasss) {
+            if (!realResponseJavaTypes.isEmpty()) {
+                baseResponseClass = realResponseJavaTypes.get(0);
+            }
+        } else {
+            responseJavaTypes.add(baseResponseClass);
+            TypeUtil.getGenericTypes((JavaClass) baseResponseClass).forEach((responseJavaTypes::add));
+        }
+        if(wraperClasss.contains(baseResponseClass.getBinaryName())){
+            return getResponseClass(wraperClasss, baseResponseClass);
+        }
+        return baseResponseClass;
     }
 
     /**
