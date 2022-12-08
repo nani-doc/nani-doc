@@ -1,6 +1,6 @@
 #!/bin/sh
 currentPath=$(cd "$(dirname "$0")";pwd)
-fileName="nani-doc-1.0.jar"
+fileName="nani-doc-1.1.jar"
 # echo  "$currentPath"
 baseUrl="https://luoye.gitee.io/s.lmm.show/nani-doc/release"
 if [ ! -f "$currentPath/$fileName" ];then

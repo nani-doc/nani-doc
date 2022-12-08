@@ -9,9 +9,9 @@ public class Downloader {
      * nani doc jar
      */
     private static final String DOWNLOAD_URL =
-            "https://luoye.gitee.io/s.lmm.show/nani-doc/release/nani-doc-1.0.jar";
+            "https://luoye.gitee.io/s.lmm.show/nani-doc/release/nani-doc-1.1.jar";
 
-    private static final String NANI_DOC_JAR_FILE_NAME = "./nani-doc-1.0.jar";
+    private static final String NANI_DOC_JAR_FILE_NAME = "./nani-doc-1.1.jar";
 
     public static void main(String[] args) {
         File file = new File(NANI_DOC_JAR_FILE_NAME);
